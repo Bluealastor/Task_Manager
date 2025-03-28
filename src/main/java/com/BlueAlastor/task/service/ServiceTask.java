@@ -49,4 +49,17 @@ public class ServiceTask {
         EntityTask savedTask = taskRepository.save(task);
         return modelMapper.map(savedTask, DTOTask.class);
     }
+
+    public DTOTask updateTask(Long id, DTOTask taskDTO) {
+        EntityTask existingTask = taskRepository.findById(id).orElseThrow(() -> new RuntimeException("Task not found"));
+        existingTask.setTitle(taskDTO.getTitle());
+        existingTask.setDescription(taskDTO.getDescription());
+        existingTask.setCompleted(taskDTO.isCompleted());
+        EntityTask updatedTask = taskRepository.save(existingTask);
+        return modelMapper.map(updatedTask, DTOTask.class);
+    }
+
+    public void deleteTask(Long id) {
+        taskRepository.deleteById(id);
+    }
 }
