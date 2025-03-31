@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.logging.Logger;
@@ -18,6 +19,7 @@ import static com.BlueAlastor.task.exception.ErrorCode.INTERNAL_SERVER_ERROR;
 import static com.BlueAlastor.task.exception.ErrorCode.NOT_FOUND;
 
 @Slf4j
+@Service
 @RequiredArgsConstructor
 public class ServiceTask {
 
